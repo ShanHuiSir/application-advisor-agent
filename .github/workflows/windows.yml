@@ -1,0 +1,28 @@
+name: Windows desktop verification
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python desktop_native.py --smoke
+      - run: python scripts/build_windows_portable.py
+      - name: Verify embedded runtime
+        shell: pwsh
+        run: |
+          & 'dist/申报参谋_Windows免安装版/python/python.exe' -c "import app; from advisor.exporting import document; import pypdf; print('EMBEDDED_IMPORT_OK')"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & 'dist/申报参谋_Windows免安装版/python/python.exe' 'dist/申报参谋_Windows免安装版/desktop_native.py' --smoke
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Windows-portable
+          path: dist/申报参谋_Windows免安装版.zip
