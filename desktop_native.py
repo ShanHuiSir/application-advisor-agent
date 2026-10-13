@@ -14,6 +14,7 @@ def main(smoke=False):
     kernel.GetModuleHandleW.argtypes=[wintypes.LPCWSTR];kernel.GetModuleHandleW.restype=wintypes.HMODULE
     user.RegisterClassW.argtypes=[ctypes.POINTER(WNDCLASS)];user.RegisterClassW.restype=wintypes.ATOM
     user.DestroyWindow.argtypes=[wintypes.HWND];user.ShowWindow.argtypes=[wintypes.HWND,ctypes.c_int]
+    user.MessageBoxW.argtypes=[wintypes.HWND,wintypes.LPCWSTR,wintypes.LPCWSTR,wintypes.UINT]
     @WNDPROC
     def proc(hwnd,msg,wparam,lparam):
         if msg==0x111 and (wparam&0xffff)==101:webbrowser.open('http://127.0.0.1:8891');return 0
