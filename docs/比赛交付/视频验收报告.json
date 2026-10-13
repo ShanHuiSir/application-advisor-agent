@@ -1,0 +1,77 @@
+{
+  "checked_at": "2026-10-13",
+  "video": "申报资料解析与文案生成智能体-演示视频.mp4",
+  "sha256": "48ffec0ba397ca53e82b340ebf591767e6533a4d89ce717b0456d0a1c8c44150",
+  "video_codec": "H.264 High / yuv420p",
+  "audio_codec": "AAC LC / 48000Hz mono",
+  "resolution": "1920x1080",
+  "encoded_fps": 24,
+  "decoded_audio_duration_seconds": 231.552,
+  "full_audio_video_decode": "passed; FFmpeg returned zero without error output",
+  "audio_rms_dbfs": -16.48,
+  "chapter_audio_checks": [
+    {
+      "chapter": "业务问题",
+      "rms_dbfs": -16.33
+    },
+    {
+      "chapter": "输入资料",
+      "rms_dbfs": -16.42
+    },
+    {
+      "chapter": "解析与匹配",
+      "rms_dbfs": -16.54
+    },
+    {
+      "chapter": "查看资格结果",
+      "rms_dbfs": -16.47
+    },
+    {
+      "chapter": "差距与补足",
+      "rms_dbfs": -16.22
+    },
+    {
+      "chapter": "生成申报文案",
+      "rms_dbfs": -16.64
+    },
+    {
+      "chapter": "阅读草稿与清单",
+      "rms_dbfs": -16.43
+    },
+    {
+      "chapter": "政策日历",
+      "rms_dbfs": -16.8
+    },
+    {
+      "chapter": "原文证据问答",
+      "rms_dbfs": -16.59
+    },
+    {
+      "chapter": "导出成果",
+      "rms_dbfs": -16.38
+    }
+  ],
+  "voice": "Kokoro v1.1 zh / zf_001 Chinese neural voice; pauses and light speed variation",
+  "subtitle_blocks": 38,
+  "subtitle_time_order": "passed",
+  "subtitles_burned_in": true,
+  "visual_qa": "Viewed representative full-resolution chapter frames; Chinese UI, numerical results and captions readable. Viewed generated DOCX pages, no clipping or missing CJK.",
+  "capture": "Actual browser screenshot sequence sampled by timestamp (roughly 4–6fps) and encoded at 24fps; real mouse/click/input/scroll events. No synthetic interface result substitution.",
+  "inactive_wait_removed_seconds": 8.423,
+  "simulation": true,
+  "video_run_id": "c3d0dd687dd1495ca0d94bfdfa141499",
+  "document_integrity": [
+    {
+      "file": "项目申报书草稿.docx",
+      "all_source_paragraphs_present": true,
+      "draft_chinese_characters": 4324
+    },
+    {
+      "file": "视频实测申报书草稿.docx",
+      "all_source_paragraphs_present": true,
+      "draft_chinese_characters": 3899
+    }
+  ],
+  "competition_identity_present": true,
+  "limitations": "This report verifies stream decoding, non-silent audio, subtitle timing, representative visual frames and source text integrity. It does not claim separate human listening review or exhaustive Windows desktop testing."
+}

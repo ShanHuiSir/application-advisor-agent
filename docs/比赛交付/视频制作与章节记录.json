@@ -1,0 +1,111 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "duration_seconds": 231.228,
+  "source": "Tabbit真实操作按时间戳采集画面；非静态幻灯片",
+  "chapters": [
+    {
+      "chapter": "业务问题",
+      "start": 0,
+      "seconds": 20.712,
+      "raw_seconds": 20.712,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 126,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "请导入政策文件和企业档案，开始分析。"
+    },
+    {
+      "chapter": "输入资料",
+      "start": 20.712,
+      "seconds": 22.714,
+      "raw_seconds": 22.714,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 141,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "文件已选择，请点击解析政策并匹配企业。"
+    },
+    {
+      "chapter": "解析与匹配",
+      "start": 43.426,
+      "seconds": 23.447,
+      "raw_seconds": 23.447,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 145,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "分析完成：2个项目已核验，请查看逐项条件与原文。"
+    },
+    {
+      "chapter": "查看资格结果",
+      "start": 66.873,
+      "seconds": 22.362,
+      "raw_seconds": 22.362,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 86,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "分析完成：2个项目已核验，请查看逐项条件与原文。"
+    },
+    {
+      "chapter": "差距与补足",
+      "start": 89.235,
+      "seconds": 24.259,
+      "raw_seconds": 24.259,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 150,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "分析完成：2个项目已核验，请查看逐项条件与原文。"
+    },
+    {
+      "chapter": "生成申报文案",
+      "start": 113.494,
+      "seconds": 25.723000000000003,
+      "raw_seconds": 34.146,
+      "compressed_wait_seconds": 8.422999999999998,
+      "actual_frames": 211,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "文案已生成：3899个中文字。附件清单与日历可一并导出。"
+    },
+    {
+      "chapter": "阅读草稿与清单",
+      "start": 139.217,
+      "seconds": 25.123,
+      "raw_seconds": 25.123,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 155,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "问答完成，可展开证据核对。"
+    },
+    {
+      "chapter": "政策日历",
+      "start": 164.34,
+      "seconds": 22.65,
+      "raw_seconds": 22.65,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 140,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "提醒检查完成：0条提醒记录。"
+    },
+    {
+      "chapter": "原文证据问答",
+      "start": 186.99,
+      "seconds": 18.945,
+      "raw_seconds": 18.945,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 117,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "问答完成，可展开证据核对。"
+    },
+    {
+      "chapter": "导出成果",
+      "start": 205.935,
+      "seconds": 25.293,
+      "raw_seconds": 25.293,
+      "compressed_wait_seconds": 0,
+      "actual_frames": 150,
+      "voice": "Kokoro v1.1 zh / zf_001",
+      "status": "问答完成，可展开证据核对。"
+    }
+  ],
+  "bytes": 12568048,
+  "sha256": "48ffec0ba397ca53e82b340ebf591767e6533a4d89ce717b0456d0a1c8c44150"
+}
