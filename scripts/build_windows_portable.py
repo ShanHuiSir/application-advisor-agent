@@ -18,7 +18,7 @@ def main():
     for wheel in cache.glob('*.whl'):
         with zipfile.ZipFile(wheel) as z:z.extractall(site)
     (target/'python/python312._pth').write_text('python312.zip\n.\nLib/site-packages\n..\nimport site\n',encoding='utf-8')
-    for name in ['advisor','web','samples']:
+    for name in ['advisor','web','samples','assets']:
         shutil.copytree(ROOT/name,target/name,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__'))
     for name in ['app.py','desktop_native.py','.env.example','README.md','LICENSE']:shutil.copy2(ROOT/name,target/name)
     (target/'启动申报参谋.bat').write_text('@echo off\nchcp 65001 >nul\ncd /d "%~dp0"\npython\\pythonw.exe desktop_native.py\n',encoding='utf-8')
