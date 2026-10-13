@@ -24,7 +24,7 @@ class ServiceTests(unittest.TestCase):
   with patch('app.calendar',return_value=[{'status':'已截止','days_left':-1}]):app.check_alerts()
   with sqlite3.connect(app.DB) as db:self.assertEqual(db.execute('SELECT COUNT(*) FROM alerts').fetchone()[0],0)
  def test_export_hashes_and_complete_word(self):
-  root=Path(__file__).resolve().parents[1];run=json.loads((root/'docs/验收成果/真实模型验收.json').read_text());data=export(run)
+  root=Path(__file__).resolve().parents[1];run=json.loads((root/'docs/验收成果/真实模型验收.json').read_text(encoding="utf-8"));data=export(run)
   import hashlib
   from docx import Document
   with zipfile.ZipFile(io.BytesIO(data)) as z:

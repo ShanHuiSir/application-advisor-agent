@@ -14,7 +14,7 @@ def china_now():
 def load_env(root):
     p=Path(root)/'.env'
     if p.exists():
-        for line in p.read_text().splitlines():
+        for line in p.read_text(encoding="utf-8").splitlines():
             if '=' in line and not line.startswith('#'):
                 k,v=line.split('=',1);os.environ.setdefault(k.strip(),v.strip())
 

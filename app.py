@@ -46,7 +46,7 @@ def dispatch(path,p):
         key=p.get('key','').strip()
         if not key:raise ValueError('Key为空')
         os.environ['DEEPSEEK_API_KEY']=key
-        if p.get('remember'): (ROOT/'.env').write_text('DEEPSEEK_API_KEY='+key+'\nDEEPSEEK_MODEL=deepseek-chat\n')
+        if p.get('remember'): (ROOT/'.env').write_text('DEEPSEEK_API_KEY='+key+'\nDEEPSEEK_MODEL=deepseek-chat\n',encoding='utf-8')
         return {'configured':True}
     if path=='/api/analyze':
         policy=extract_file(p['policy']['name'],base64.b64decode(p['policy']['data'],validate=True))
@@ -89,7 +89,7 @@ class Handler(BaseHTTPRequestHandler):
                 r=read(path.rsplit('/',1)[1]);return self.send(export(r),ctype='application/zip')
             if path.startswith('/api/calendar/'):
                 return self.send(ics(read(path.rsplit('/',1)[1])),ctype='text/calendar; charset=utf-8')
-            if path=='/api/samples':return self.send({'policy':(ROOT/'samples/虚构省级科技项目指南.txt').read_text(),'profile':(ROOT/'samples/虚构企业基础档案.json').read_text()})
+            if path=='/api/samples':return self.send({'policy':(ROOT/'samples/虚构省级科技项目指南.txt').read_text(encoding="utf-8"),'profile':(ROOT/'samples/虚构企业基础档案.json').read_text(encoding="utf-8")})
             target=ROOT/'web'/('index.html' if path=='/' else path.lstrip('/'))
             if not target.resolve().is_relative_to((ROOT/'web').resolve()) or not target.is_file():return self.send({'error':'不存在'},404)
             ctype={'html':'text/html; charset=utf-8','css':'text/css; charset=utf-8','js':'text/javascript; charset=utf-8'}.get(target.suffix[1:],'application/octet-stream')
