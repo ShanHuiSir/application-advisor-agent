@@ -3,6 +3,7 @@ import argparse,subprocess,sys,zipfile,urllib.request,hashlib,json,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def main():
+    if hasattr(sys.stdout,'reconfigure'):sys.stdout.reconfigure(encoding='utf-8')
     parser=argparse.ArgumentParser();parser.add_argument('--python-cache');args=parser.parse_args()
     cache=ROOT/'build/downloads';cache.mkdir(parents=True,exist_ok=True)
     p=cache/'python-3.12.10-embed-amd64.zip'

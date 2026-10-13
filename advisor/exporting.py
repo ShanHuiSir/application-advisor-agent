@@ -15,6 +15,7 @@ def font_style(style,size):
 
 def document(title):
     d=Document();sec=d.sections[0];sec.top_margin=Inches(.72);sec.bottom_margin=Inches(.65);sec.left_margin=sec.right_margin=Inches(.78)
+    for border in list(d.styles.element.iter(qn('w:pBdr'))):border.getparent().remove(border)
     for name,size in [('Normal',11),('Title',22),('Heading 1',15),('Heading 2',12),('Caption',9)]:font_style(d.styles[name],size)
     d.styles['Normal'].paragraph_format.space_after=Pt(6)
     d.styles['Normal'].paragraph_format.line_spacing=1.2

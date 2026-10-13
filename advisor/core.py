@@ -96,12 +96,17 @@ def validate_policy(data, text):
             if dt.utcoffset()!=timedelta(hours=8):raise ValueError('本版本只处理北京时间政策节点')
             for n in [dt.year,dt.month,dt.day]:
                 if not number_in_quote(n,d['quote']):raise ValueError('截止日期数值不在原文')
+            times=[(int(h),int(m)) for h,m in re.findall(r'(\d{1,2})[:：](\d{2})',d['quote'])]
+            if times and (dt.hour,dt.minute) not in times:raise ValueError('截止时刻与原文不一致')
     return projects
 
 def match(project, profile):
     checks=[]
     for c in project['conditions']:
         value=profile.get(c['field']);status='unknown';gap=None
+        years=re.findall(r'20\d{2}',c['quote'])
+        period_mismatch=c['field'] in ['revenue_wan','rd_ratio'] and years and years[0] not in str(profile.get('period',''))
+        if period_mismatch:value=None
         if value is not None:
             try:
                 a,b=(Decimal(str(value)),Decimal(str(c['value']))) if isinstance(c['value'],(int,float)) else (value,c['value'])
@@ -110,6 +115,7 @@ def match(project, profile):
                 if not passed and isinstance(b,Decimal):gap=float(abs(b-a))
             except (ValueError,TypeError,ArithmeticError):status='unknown'
         suggestion='请收集对应证明并核实数据' if status=='unknown' else '请补充对应佐证附件'
+        if period_mismatch:suggestion='财务年度缺失或不一致，请提供政策指定年度数据'
         if status=='fail':
             suggestion=f'需补足{gap:g}'+({'rd_ratio':'个百分点（按相同年度口径测算）','patents':'项有效发明专利','revenue_wan':'万元营业收入','company_age':'年成立年限'}.get(c['field'],'单位')) if gap is not None else '当前注册地或文本条件不符，请核实项目适用范围'
         checks.append({**c,'label':FIELDS[c['field']],'actual':value,'status':status,'gap':gap,'suggestion':suggestion})

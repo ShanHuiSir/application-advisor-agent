@@ -19,6 +19,13 @@ class CoreTests(unittest.TestCase):
     def test_date_timezone_required(self):
         p=self.policy();p['deadlines'][0]['date']='2026-11-15T17:00:00'
         with self.assertRaises(ValueError):validate_policy({'projects':[p]},'研发专项；最高80万元；发明专利不少于2项；研发占比不低于4%；网报2026年11月15日17:00')
+    def test_time_must_match_source(self):
+        p=self.policy();p['deadlines'][0]['date']='2026-11-15T18:00:00+08:00'
+        with self.assertRaises(ValueError):validate_policy({'projects':[p]},'研发专项；最高80万元；发明专利不少于2项；研发占比不低于4%；网报2026年11月15日17:00')
+    def test_wrong_financial_year_is_unknown(self):
+        p=self.policy();p['conditions'][1]['quote']='2025年度研发占比不低于4%'
+        r=match(p,{'patents':3,'rd_ratio':5,'period':'2024年度'})
+        self.assertEqual(r['qualification'],'待核实');self.assertIn('年度',r['checks'][1]['suggestion'])
     def test_rag_retrieves_local_source(self):
         index=chunks('申报要求专利证书。\n研发费用比例为4%。','P');self.assertIn('专利',retrieve(index,'专利证书')[0]['text']);self.assertTrue(index[0]['id'].startswith('P'))
     def test_ics_utc_and_alarms(self):
